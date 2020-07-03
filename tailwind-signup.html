@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!--
+  As in:
+    https://tailwindui.com/components/application-ui/forms/sign-in-forms
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup form</title>
+
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+
+<div id="wrapper">
+    <img id="logo"
+         src="/img/workflow-mark-on-white.svg"
+         alt="Workflow">
+
+    <h1>Sign in to your account</h1>
+    <p>
+        Or <a href="#">start your 14-day free trial</a>
+    </p>
+
+    <form id="signup" action="#" method="POST">
+        <input name="email" type="email" placeholder="Email address" required>
+        <input name="password" type="password" placeholder="Password" required>
+
+        <div id="form-options">
+            <input id="remember_me" type="checkbox">
+            <label for="remember_me">Remember me</label>
+
+            <a id="forgot-password" href="#">Forgot your password?</a>
+        </div>
+
+        <button id="sign-in" type="submit">
+            <svg fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                      clip-rule="evenodd"/>
+            </svg>
+            Sign in
+        </button>
+    </form>
+</div>
+
+</body>
+</html>
