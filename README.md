@@ -18,6 +18,9 @@ live-server --no-browser
 
 https://benjamin-thomas.github.io/ui-designs/
 
+Note to self: only use relative links, ok for dev env and live github
+ pages. 
+
 ---
 
 ### Tailwind signup
