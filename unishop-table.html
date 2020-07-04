@@ -1,0 +1,104 @@
+<!--
+  As in:
+  http://themes.rokaux.com/unishop/v3.2.1/template-1/account-orders.html
+  https://wrapbootstrap.com/theme/unishop-universal-e-commerce-template-WB0148688
+
+  Icons resource:
+  https://feathericons.com/
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unishop table</title>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&display=swap"
+            rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/unishop-table.css">
+</head>
+
+<body>
+
+<h1>My purchases</h1>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>Order #</th>
+        <th>Date Purchased</th>
+        <th>Status</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr>
+        <td><a href="#">78A643CD409</a></td>
+        <td>August 08, 2017</td>
+        <td class="canceled">Canceled</td>
+        <td>$760.50</td>
+    </tr>
+
+    <tr>
+        <td><a href="#">34VB5540K83</a></td>
+        <td>July 21, 2017</td>
+        <td class="progress"> Progress</td>
+        <td>$315.20</td>
+    </tr>
+
+    <tr>
+        <td><a href="#">112P45A90V2</a></td>
+        <td>June 15, 2017</td>
+        <td class="delayed">Delayed</td>
+        <td>$1,264.00</td>
+    </tr>
+
+    <tr>
+        <td><a href="#">28BA67U0981</a></td>
+        <td>May 19, 2017</td>
+        <td class="delivered">Delivered</td>
+        <td>$198.35</td>
+    </tr>
+
+    <tr>
+        <td><a href="#">502TR872W2</a></td>
+        <td>April 04, 2017</td>
+        <td class="delivered">Delivered</td>
+        <td>$2,133.90</td>
+    </tr>
+
+    <tr>
+        <td><a href="#">47H76G09F33</a></td>
+        <td>March 30, 2017</td>
+        <td class="delivered">Delivered</td>
+        <td>$86.40</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<div id="order-details">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4">
+        </path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    <a href="#">Order Details</a>
+</div>
+
+</body>
+</html>

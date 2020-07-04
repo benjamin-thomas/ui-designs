@@ -1,0 +1,88 @@
+body {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 14px;
+    color: #212529;
+}
+
+body {
+    width: 70%;
+    min-width: 600px; /* keep minimum width for mobile displays */
+    margin: auto;
+    margin-top: 3rem;
+}
+
+table a {
+    color: #606975;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+table a:hover {
+    color: #0DA9EF;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+tr {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #E1E7EC;
+    height: 3rem;
+}
+
+tbody tr:hover {
+    background: #f5f5f5;
+}
+
+th, td {
+    text-align: left;
+}
+
+th:last-of-type, td:last-of-type {
+    text-align: right;
+}
+
+td:last-of-type {
+    font-weight: 500;
+}
+
+td.canceled {
+    color: #FF5252;
+}
+
+td.progress {
+    color: #50C6E9
+}
+
+td.delayed {
+    color: #FFB74F
+}
+
+td.delivered {
+    color: #43D9A3
+}
+
+#order-details {
+    padding: 1.5rem 0;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    text-transform: uppercase;
+    color: #0DA9EF;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#order-details svg {
+    color: #0DA9EF;
+    height: 1rem;
+    margin-right: 0.2rem;
+}
