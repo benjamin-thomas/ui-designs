@@ -31,8 +31,8 @@ Navigate to [my github pages](https://benjamin-thomas.github.io/ui-designs/)
 
 Visualise any of these pages
 
-- [tailwind-signup.html](tailwind-signup.html)
-- [unishop-table.html](unishop-table.html)
+1. [tailwind-signup.html](tailwind-signup.html)
+2. [unishop-table.html](unishop-table.html)
 
 
 
