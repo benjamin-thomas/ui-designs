@@ -1,4 +1,4 @@
-## Implementation of various UI components in HTML/CSS.
+# Implementation of various UI components in HTML/CSS.
 
 This is just me trying to reproduce various designs found on the web.
 
@@ -7,33 +7,32 @@ I try to keep the HTML markup as lean as possible (no extra
 
 Keeping for reference and inspiration.
 
-### Requirements:
+## Development
+
+Use this tool
 
 ```bash
 npm install -g live-server
 live-server --no-browser
 ```
 
-### Live version at:
-
-https://benjamin-thomas.github.io/ui-designs/
-
 Note to self: only use relative links, ok for dev env and live github
  pages. 
 
 ---
 
-### Tailwind signup
+## Go to live environment
 
-[tailwind-signup.html](tailwind-signup.html)
+### Step 1
 
-![Tailwind signup](results/tailwind-signup.png)
+Navigate to [my github pages](https://benjamin-thomas.github.io/ui-designs/)
 
----
+### Step 2
 
-### Unishop table
+Visualise any of these pages
 
-[unishop-table.html](unishop-table.html)
-![Unishop table](results/unishop-table.png)
+- [tailwind-signup.html](tailwind-signup.html)
+- [unishop-table.html](unishop-table.html)
+
 
 
