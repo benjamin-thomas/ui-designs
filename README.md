@@ -14,6 +14,10 @@ npm install -g live-server
 live-server --no-browser
 ```
 
+### Live version at:
+
+https://benjamin-thomas.github.io/ui-designs/
+
 ---
 
 ### Tailwind signup
