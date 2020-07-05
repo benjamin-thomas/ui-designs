@@ -55,7 +55,7 @@ Visualise any of these pages
 
 1. [tailwind-signup.html](tailwind-signup.html)
 2. [unishop-table.html](unishop-table.html)
-2. [Apland navbar](apland-navbar.html)
+2. [Apland navbar (mobile navbar needs more work)](apland-navbar.html)
 
 
 

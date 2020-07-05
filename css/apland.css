@@ -1,0 +1,135 @@
+/*
+Bootstrap media queries breakpoints
+https://getbootstrap.com/docs/4.1/layout/overview/
+*/
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #020710;
+    margin: 0;
+}
+
+nav {
+    padding: 0 80px;
+    height: 60px;
+    border-bottom: 1px solid #f5f5ff;
+}
+
+#app-logo img {
+    margin: 15px 0;
+    height: 30px;
+}
+
+#hamburger-toggle {
+    /* url link relative to the stylesheet */
+    background: url(../img/hamburger-open.svg) center no-repeat;
+    float: right;
+    padding: 20px 20px;
+    height: 20px;
+    background-size: 40px;
+
+    transition: all .3s ease-in-out;
+}
+
+#hamburger-toggle.close {
+    background-image: url(../img/hamburger-close.svg);
+    background-size: 30px;
+}
+
+#nav-links {
+    display: none;
+}
+
+#nav-links a {
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#nav-links a:hover {
+    color: #3F43FD;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    nav {
+        height: 90px;
+        padding: 0 120px;
+    }
+
+    #app-logo img {
+        margin: 30px 0;
+        height: 30px;
+    }
+
+    #hamburger-toggle {
+        display: none;
+        float: left;
+    }
+
+    section {
+        color: red;
+    }
+
+    #nav-links {
+        display: inline-block;
+        position: absolute;
+        line-height: 90px;
+        /*right: 80px; !* see navbar !**/
+        right: 120px;
+    }
+
+    #nav-links a {
+        display: inline;
+        margin-right: 30px;
+    }
+
+    /* Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+        #nav-links a {
+            margin-right: 43px;
+        }
+    }
+
+    #nav-links a:last-of-type {
+        margin-right: 0;
+        background: #3f43fd;
+        border-radius: 5px;
+        color: white;
+
+        /* h=46, l=143 */
+        padding: 12px 28px;
+
+    }
+
+}
+
+
+/*
+
+
+nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 20px;
+    color: inherit;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+nav a:nth-of-type(2) {
+    border: 1px solid red;
+    color: red;
+    margin-left: 25%;
+}
+
+nav a:last-of-type {
+    border: 1px solid green;
+}
+*/
