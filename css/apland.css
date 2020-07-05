@@ -65,11 +65,68 @@ nav {
     color: white;
 }
 
+h1 {
+    margin-top: 40px;
+    /*28 -> 48*/
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+h3 {
+    margin-top: 34px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+a.btn-blue, a.btn-white {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px 2px;
+}
+
+a.btn-blue {
+    color: white;
+}
+
+a.btn-white {
+    color: #3F43FD;
+    font-weight: 500;
+}
+
+.btn-blue {
+    background: #3F43FD;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.btn-white {
+    border: 2px solid #3F43FD;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+
+section:nth-of-type(2) {
+    margin-top: 60px;
+}
+
+.txt-blue {
+    color: #3F43FD;
+}
+
+.txt-red {
+    color: #f4284a;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    #wrapper {
+        padding: 0 120px;
+    }
+
     nav {
         height: 90px;
-        padding: 0 120px;
     }
 
     #app-logo img {
@@ -82,15 +139,10 @@ nav {
         float: left;
     }
 
-    section {
-        color: red;
-    }
-
     #nav-links {
         display: inline-block;
         position: absolute;
         line-height: 90px;
-        /*right: 80px; !* see navbar !**/
         right: 120px;
     }
 
@@ -108,34 +160,34 @@ nav {
 
     #nav-links a:last-of-type {
         margin-right: 0;
-
-        /* h=46, l=143 */
         padding: 12px 28px;
     }
 
+    section:first-of-type {
+        width: 48%;
+    }
+
+    h1 {
+        margin-top: 90px;
+        font-size: 48px;
+        line-height: 60px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        font-size: 20px;
+        margin-top: 30px;
+    }
 
 }
 
-
-/*
-
-
-nav a {
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 0 20px;
-    color: inherit;
-    font-weight: 500;
-    font-size: 14px;
+/* Overrides for mobile only */
+@media (max-width: 991px) {
+    #presentation a.btn-blue {
+        margin-top: 30px;
+    }
+    #presentation a.btn-white {
+        margin-top: 20px;
+    }
 }
-
-nav a:nth-of-type(2) {
-    border: 1px solid red;
-    color: red;
-    margin-left: 25%;
-}
-
-nav a:last-of-type {
-    border: 1px solid green;
-}
-*/
