@@ -17,7 +17,29 @@ live-server --no-browser
 ```
 
 Note to self: only use relative links, ok for dev env and live github
- pages. 
+ pages.
+
+Cleanup HTML with vim and this regex:
+
+```
+style=".\{-}"
+```
+
+It seems `\{-}` is vim's non greedy match version of `*?`
+
+So basically use this:
+
+```
+# Remove attributes
+:%s:class=".\{-}"::g
+:%s:id=".\{-}"::g
+
+# Reset hrefs
+:%s:href=".\{-}":href="#":g
+
+# Remove data tags
+:%s:data-.\{-}".\{-}"::g
+```
 
 ---
 
@@ -33,6 +55,7 @@ Visualise any of these pages
 
 1. [tailwind-signup.html](tailwind-signup.html)
 2. [unishop-table.html](unishop-table.html)
+2. [Apland navbar](apland-navbar.html)
 
 
 
