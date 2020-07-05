@@ -8,8 +8,11 @@ body {
     margin: 0;
 }
 
+#wrapper {
+    padding: 0 16px;
+}
+
 nav {
-    padding: 0 80px;
     height: 60px;
     border-bottom: 1px solid #f5f5ff;
 }
@@ -56,6 +59,12 @@ nav {
     color: #3F43FD;
 }
 
+#nav-links a:last-of-type {
+    background: #3f43fd;
+    border-radius: 5px;
+    color: white;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     nav {
@@ -99,14 +108,11 @@ nav {
 
     #nav-links a:last-of-type {
         margin-right: 0;
-        background: #3f43fd;
-        border-radius: 5px;
-        color: white;
 
         /* h=46, l=143 */
         padding: 12px 28px;
-
     }
+
 
 }
 
