@@ -53,7 +53,8 @@ Navigate to [my github pages](https://benjamin-thomas.github.io/ui-designs/)
 
 Visualise any of these pages
 
-1. [Tailwind signup](tailwind-signup.html)
-2. [Unishop table](unishop-table.html)
-3. [Apland navbar (mobile navbar needs more work)](apland-navbar.html)
-4. [Sidebar nav menu](sidebar-nav.html)
+1. [Tailwind signup](001-tailwind-signup)
+2. [Unishop table](002-unishop-table)
+3. [Apland navbar (mobile navbar needs more work)](003-appland)
+4. [Sidebar nav menu](004-sidebar-nav)
+5. [Street Food](005-street-food)
