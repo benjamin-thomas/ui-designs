@@ -1,4 +1,4 @@
-# Implementation of various UI components in HTML/CSS.
+# Implementation of various UI components in HTML/CSS
 
 This is just me trying to reproduce various designs found on the web.
 
@@ -21,7 +21,7 @@ Note to self: only use relative links, ok for dev env and live github
 
 Cleanup HTML with vim and this regex:
 
-```
+```vim
 style=".\{-}"
 ```
 
@@ -29,7 +29,7 @@ It seems `\{-}` is vim's non greedy match version of `*?`
 
 So basically use this:
 
-```
+```vim
 # Remove attributes
 :%s:class=".\{-}"::g
 :%s:id=".\{-}"::g
@@ -53,9 +53,7 @@ Navigate to [my github pages](https://benjamin-thomas.github.io/ui-designs/)
 
 Visualise any of these pages
 
-1. [tailwind-signup.html](tailwind-signup.html)
-2. [unishop-table.html](unishop-table.html)
-2. [Apland navbar (mobile navbar needs more work)](apland-navbar.html)
-
-
-
+1. [Tailwind signup](tailwind-signup.html)
+2. [Unishop table](unishop-table.html)
+3. [Apland navbar (mobile navbar needs more work)](apland-navbar.html)
+4. [Sidebar nav menu](sidebar-nav.html)

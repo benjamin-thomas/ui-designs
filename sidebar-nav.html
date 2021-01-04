@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar nav</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/sidebar-nav.css">
+
+    <script>
+        // window.addEventListener("load", () => {
+        //     document.body.classList.remove("preload");
+        // });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector("nav");
+
+            document.querySelector("#btnNav").addEventListener("click", () => {
+                nav.classList.add("open");
+            });
+
+            document.querySelector("#nav-overlay").addEventListener("click",
+                () => {
+                nav.classList.remove("open");
+            });
+        });
+    </script>
+</head>
+
+
+
+    <body class="preload">
+        <header>
+            <button id="btnNav" type="button">
+                <i class="material-icons">menu</i>
+            </button>
+        </header>
+        <nav>
+            <div class="nav-links">
+                <a href="#">
+                    <i class="material-icons">dashboard</i>
+                    Dashboard
+                </a>
+                <a class="active" href="#">
+                    <i class="material-icons">source</i>
+                    Projects
+                </a>
+                <a href="#">
+                    <i class="material-icons">lock</i>
+                    Security
+                </a>
+                <a href="#">
+                    <i class="material-icons">history</i>
+                    History
+                </a>
+                <a href="#">
+                    <i class="material-icons">person</i>
+                    Profile
+                </a>
+            </div>
+            <div id="nav-overlay"></div>
+        </nav>
+
+        <main>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, est dolorem expedita deleniti deserunt
+                corporis fuga, repudiandae eligendi, in vel velit odio reiciendis magnam sunt id ab obcaecati animi hic.
+            </p>
+        </main>
+    </body>
+
+
+</html>
