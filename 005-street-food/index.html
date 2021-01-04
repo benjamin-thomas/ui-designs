@@ -9,42 +9,73 @@ Time tracker :
   - 30 min : Get images, setup project
   - 30 min : Refactor listing (for every projects)
   - 30 min : More basic setup, barely starting work an navbar
+  - 30 min : Basic navbar laid out, missing heart + tray + search
+  - 30 min : Navbar animation height OK, working on logo display
+  - 30 min : Simplify onscroll actions, tweak logo transition, color active OK, WIP : border-bottom transition
 
 TODO, use for heart :
     https://cdnjs.com/libraries/simple-line-icons
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 -->
 <head>
     <meta charset="UTF-8">
     <title>Street Food</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link href="css/main.css" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 </head>
 
 <body>
 
 <header>
-    <nav>
-        <a id="app-logo" href="#">
-            <img src="img/logo.png"
-                 alt="Street Food Logo">
-        </a>
-        <a id="hamburger-toggle" href="#">
+    <nav id="navbar">
+        <a href="#" id="app-logo">
+            <img alt="Street Food Logo"
+                 src="img/logo.png">
         </a>
 
         <div id="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Pages</a>
-            <a href="#">Download</a>
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Shop</a>
             <a href="#">Blog</a>
-            <a href="#">Contact</a>
-            <a href="#">Get Started</a>
+            <a href="#">Sign in / Join</a>
+            <a href="#">HEART</a>
+            <a href="#">TRAY</a>
+            <a href="#">SEARCH</a>
         </div>
 
     </nav>
 
+    <section id="bogus">
+    </section>
+
 </header>
+
+
+<script>
+    // (function () {
+    const navbar = document.getElementById("navbar");
+
+    const docBody = document.body;
+    const docElement = document.documentElement;
+    const triggerHeight = 80;
+
+    window.onscroll = function () {
+        shrinkNavBar()
+    };
+
+    function shrinkNavBar() {
+        if (docBody.scrollTop > triggerHeight || docElement.scrollTop > triggerHeight) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    // })();
+</script>
 
 </body>
 </html>

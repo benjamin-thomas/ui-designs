@@ -1,3 +1,69 @@
 * {
-    background: red;
+    font-family: SansSerif, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header nav {
+    background: #28170F;
+}
+
+#app-logo {
+    /*display: none;*/
+    /*visibility: ;*/
+}
+
+#app-logo img {
+    width: 0;
+    transition: width 0.25s cubic-bezier(.07, 1.05, .51, .77);
+}
+
+#navbar {
+    height: 74px;
+    transition: height 0.25s ease-in;
+    display: flex;
+    justify-content: space-around; /* logo left, rest on the right */
+    align-items: center; /* align horizontally */
+}
+
+#navbar.scrolled {
+    height: 54px;
+}
+
+#navbar.scrolled #app-logo img {
+    width: 190px;
+}
+
+a.active {
+    color: #e3b407;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+    border-bottom: none;
+    /* WIP:
+    https://codepen.io/martinwolf/pen/eNNdme
+     */
+    transition: all 0.25s ease-in;
+}
+
+#nav-links a.active, #nav-links a:hover {
+    /* Must override here */
+    color: #e3b407;
+}
+
+#nav-links a:hover {
+    border-bottom: 2px solid #e3b407;
+    padding-bottom: 3px;
+}
+
+header #navbar {
+    position: fixed;
+    width: 100%;
+}
+
+#bogus {
+    padding-top: 1500px;
 }
