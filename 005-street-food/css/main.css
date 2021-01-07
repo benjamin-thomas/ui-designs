@@ -4,13 +4,12 @@
     padding: 0;
 }
 
-header nav {
-    background: #28170F;
+body {
+    font-size: 14px; /* override browser default is 16px */
 }
 
-#app-logo {
-    /*display: none;*/
-    /*visibility: ;*/
+header nav {
+    background: #28170F;
 }
 
 #app-logo img {
@@ -22,7 +21,8 @@ header nav {
     height: 74px;
     transition: height 0.25s ease-in;
     display: flex;
-    justify-content: space-around; /* logo left, rest on the right */
+    justify-content: space-between; /* logo left, rest on the right */
+    padding-left: 74px; /* See: #nav-links margin-right */
     align-items: center; /* align horizontally */
 }
 
@@ -38,15 +38,15 @@ a.active {
     color: #e3b407;
 }
 
+#nav-links {
+    margin-right: 120px; /* See: #navbar padding-left */
+}
+
 #nav-links a {
     text-decoration: none;
     color: white;
-    margin-right: 10px;
-    border-bottom: none;
-    /* WIP:
-    https://codepen.io/martinwolf/pen/eNNdme
-     */
-    transition: all 0.25s ease-in;
+    margin-right: 30px;
+    font-size: 13px;
 }
 
 #nav-links a.active, #nav-links a:hover {
@@ -64,6 +64,108 @@ header #navbar {
     width: 100%;
 }
 
+#front {
+    height: 96vh;
+    background: rgba(25, 0, 0, 0.3) url("../img/front.jpg") no-repeat;
+    background-blend-mode: multiply; /* overlay, see rgba above */
+    background-size: cover;
+    background-position-y: 24%;
+    position: relative; /* for #waves-pattern */
+}
+
+#front .content {
+    color: white;
+    position: absolute;
+    top: 45vh;
+    left: 110px;
+    z-index: 999;
+}
+
+#front p {
+    color: #e5e5e5;
+}
+
+/*
+TO READ:
+  https://jamesauble.medium.com/create-wave-border-with-svg-and-css-clip-path-aa2ee11cff39
+  Try this technique
+  https://codepen.io/James0r/embed/earmgP?default-tab=&theme-id=
+ */
+/*#waves-pattern {*/
+/*    !*background: red;*!*/
+/*    background: url("../img/waves-pattern.svg");*/
+/*    min-height: 50px;*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    !*z-index: 999;*!*/
+/*    transform: rotate(180deg);*/
+/*}*/
+/*#waves-pattern:after svg {*/
+/*    fill:white*/
+/*}*/
+
+/*#waves-pattern:hover {*/
+/*    transform: rotate(-30deg);*/
+/*}*/
+/*#waves-pattern:before {*/
+/*    content: '';*/
+/*    min-height: 50px;*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    transform: rotation: 180deg;*/
+/*}*/
+
+
+h1 {
+    font-size: 3rem;
+}
+
+.separator {
+    /*border-bottom: 3px solid #2C2C2C;*/
+    height: 4px;
+    margin: 22px 0 22px 0;
+    width: 80px;
+    background: #2C2C2C;
+}
+
+.bt-social-icons {
+    margin-top: 3rem;
+}
+
+.bt-social-icons i {
+    background: #e3b407;
+    font-size: 1rem;
+    border-radius: 100%;
+    padding: .8rem .7rem;
+    margin-right: 15px;
+    /*margin: auto;*/
+    /*width: 2rem;*/
+    /*text-align: center;*/
+
+    /*display: inline-block;*/
+    /*color: white;*/
+    /*text-decoration: none;*/
+    /*font-size: 2rem;*/
+}
+
+#front svg {
+    /*width: 100vw;*/
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: 0;
+}
+
+#front svg path {
+    /*filter:invert(100%);*/
+    /*fill: transparent;*/
+    fill: white;
+    /*background-color: red;*/
+    /*stroke:purple;*/
+    /*color: green;*/
+}
+
 #bogus {
-    padding-top: 1500px;
+    height: 300px;
 }
