@@ -85,39 +85,6 @@ header #navbar {
     color: #e5e5e5;
 }
 
-/*
-TO READ:
-  https://jamesauble.medium.com/create-wave-border-with-svg-and-css-clip-path-aa2ee11cff39
-  Try this technique
-  https://codepen.io/James0r/embed/earmgP?default-tab=&theme-id=
- */
-/*#waves-pattern {*/
-/*    !*background: red;*!*/
-/*    background: url("../img/waves-pattern.svg");*/
-/*    min-height: 50px;*/
-/*    width: 100%;*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    !*z-index: 999;*!*/
-/*    transform: rotate(180deg);*/
-/*}*/
-/*#waves-pattern:after svg {*/
-/*    fill:white*/
-/*}*/
-
-/*#waves-pattern:hover {*/
-/*    transform: rotate(-30deg);*/
-/*}*/
-/*#waves-pattern:before {*/
-/*    content: '';*/
-/*    min-height: 50px;*/
-/*    width: 100%;*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    transform: rotation: 180deg;*/
-/*}*/
-
-
 h1 {
     font-size: 3rem;
 }
@@ -140,30 +107,16 @@ h1 {
     border-radius: 100%;
     padding: .8rem .7rem;
     margin-right: 15px;
-    /*margin: auto;*/
-    /*width: 2rem;*/
-    /*text-align: center;*/
-
-    /*display: inline-block;*/
-    /*color: white;*/
-    /*text-decoration: none;*/
-    /*font-size: 2rem;*/
 }
 
 #front svg {
-    /*width: 100vw;*/
     transform: rotate(180deg);
     position: absolute;
     bottom: 0;
 }
 
 #front svg path {
-    /*filter:invert(100%);*/
-    /*fill: transparent;*/
     fill: white;
-    /*background-color: red;*/
-    /*stroke:purple;*/
-    /*color: green;*/
 }
 
 #bogus {
