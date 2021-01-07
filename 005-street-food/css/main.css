@@ -24,6 +24,7 @@ header nav {
     justify-content: space-between; /* logo left, rest on the right */
     padding-left: 74px; /* See: #nav-links margin-right */
     align-items: center; /* align horizontally */
+    z-index: 1; /* Waves pattern made this a requirement. */
 }
 
 #navbar.scrolled {
@@ -65,7 +66,7 @@ header #navbar {
 }
 
 #front {
-    height: 96vh;
+    height: 112vh;
     background: rgba(25, 0, 0, 0.3) url("../img/front.jpg") no-repeat;
     background-blend-mode: multiply; /* overlay, see rgba above */
     background-size: cover;
@@ -78,7 +79,6 @@ header #navbar {
     position: absolute;
     top: 45vh;
     left: 110px;
-    z-index: 999;
 }
 
 #front p {
@@ -117,6 +117,20 @@ h1 {
 
 #front svg path {
     fill: white;
+    /*stroke: green;*/
+}
+
+/*
+Override:
+    Waves pattern has bottom border applied and linked to its stroke
+
+    Is this a chrome bug?? The unwanted border disappears if I open the dev tools.
+    */
+#hide-bottom-svg-border {
+    position: relative;
+    height:1px;
+    background-color: white;
+    top: -1px;
 }
 
 #bogus {
