@@ -202,6 +202,39 @@ section:nth-of-type(3) {
 section:nth-of-type(3) img {
     width: 100%;
 }
+
+#place-order {
+    /*border: 1px solid red;*/
+    height: 800px;
+    background-image: url(../img/narrow-street.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* parallax */
+}
+
+#place-order svg {
+    fill: white;
+}
+
+#place-order .images {
+    margin: 30px 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+
+#place-order .images img {
+    width: 100%;
+    /*height: auto;*/
+    /*min-height: 100%;*/
+
+    border: 3px double #e3b407;
+    border-radius: 5px;
+
+    object-fit:cover;
+}
+
 /*!* 768px, 480px *!*/
 /*@media screen and (max-width: 768px) {*/
 /*    !*section .right {grid-row: 1;} // Tha's how I would inverse row order *!*/
