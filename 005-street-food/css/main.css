@@ -1,3 +1,13 @@
+/*
+Grid cheat sheet:
+    https://grid.malven.co/
+
+ */
+
+:root {
+    --border-margin: 10vw;
+}
+
 * {
     font-family: SansSerif, sans-serif;
     margin: 0;
@@ -78,7 +88,7 @@ header #navbar {
     color: white;
     position: absolute;
     top: 45vh;
-    left: 110px;
+    margin-left: var(--border-margin);
 }
 
 #front p {
@@ -90,11 +100,14 @@ h1 {
 }
 
 .separator {
-    /*border-bottom: 3px solid #2C2C2C;*/
     height: 4px;
-    margin: 22px 0 22px 0;
+    margin: 45px 0 45px 0;
     width: 80px;
     background: #2C2C2C;
+}
+
+#front .separator {
+    margin: 22px 0 22px 0;
 }
 
 .bt-social-icons {
@@ -128,10 +141,66 @@ Override:
     */
 #hide-bottom-svg-border {
     position: relative;
-    height:1px;
+    height: 1px;
     background-color: white;
     top: -1px;
 }
+
+section:not(:first-of-type) {
+    margin-left: var(--border-margin);
+    margin-right: var(--border-margin);
+}
+
+section h2 {
+    color: #7a7a7a;
+    font-size: 35px;
+    /*margin-bottom: 40px;*/
+}
+
+/*https://blog.theodo.com/2018/03/stop-using-bootstrap-layout-thanks-to-css-grid/*/
+section p:first-of-type {
+    color: rgb(146, 146, 146);
+    padding-top: 0;
+    /*display: grid;*/
+    /*grid-template-columns: repeat(12, 1fr);*/
+}
+
+section .left, section .right {
+    /*grid-column: span 6;*/
+}
+
+section:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid red;
+}
+
+section:nth-of-type(2) .left {
+    /*padding-right: 20px;*/
+    grid-column: span 5;
+}
+
+section:nth-of-type(2) .right {
+    grid-column: span 7;
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+}
+
+section:nth-of-type(2) .right img {
+    /*max-width: 100%; !* prevents the image overflowing the grid container *!*/
+    width: 100%;
+}
+
+/*!* 768px, 480px *!*/
+/*@media screen and (max-width: 768px) {*/
+/*    !*section .right {grid-row: 1;} // Tha's how I would inverse row order *!*/
+/*    section .left, section .right {*/
+/*        border: 3px solid green;*/
+/*        grid-column: span 12;*/
+/*    }*/
+/*}*/
 
 #bogus {
     height: 300px;

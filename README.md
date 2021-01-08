@@ -13,7 +13,7 @@ Use this tool
 
 ```bash
 npm install -g live-server
-live-server --no-browser
+live-server --no-browser --no-css-inject
 ```
 
 Note to self: only use relative links, ok for dev env and live github
