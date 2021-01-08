@@ -147,8 +147,10 @@ Override:
 }
 
 section:not(:first-of-type) {
-    margin-left: var(--border-margin);
-    margin-right: var(--border-margin);
+    /*margin-left: var(--border-margin);*/
+    /*margin-right: var(--border-margin);*/
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 section h2 {
@@ -161,6 +163,7 @@ section h2 {
 section p:first-of-type {
     color: rgb(146, 146, 146);
     padding-top: 0;
+    line-height: 25px;
     /*display: grid;*/
     /*grid-template-columns: repeat(12, 1fr);*/
 }
@@ -170,19 +173,15 @@ section .left, section .right {
 }
 
 section:nth-of-type(2) {
+    /*border: 1px solid orange;*/
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: 1px solid red;
-}
-
-section:nth-of-type(2) .left {
-    /*padding-right: 20px;*/
-    grid-column: span 5;
+    grid-template-columns: 4fr 6fr;
+    grid-column-gap: 60px;
+    margin: 100px 120px;
 }
 
 section:nth-of-type(2) .right {
-    grid-column: span 7;
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
@@ -193,6 +192,16 @@ section:nth-of-type(2) .right img {
     width: 100%;
 }
 
+section:nth-of-type(3) {
+    /*border: 1px solid red;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 60px;
+    margin: 150px 10px;
+}
+section:nth-of-type(3) img {
+    width: 100%;
+}
 /*!* 768px, 480px *!*/
 /*@media screen and (max-width: 768px) {*/
 /*    !*section .right {grid-row: 1;} // Tha's how I would inverse row order *!*/

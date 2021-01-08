@@ -29,6 +29,7 @@ Time tracker :
   - 30 min : Change margin-left, start 2nd section
   - 30 min : Fix margins, add right margin and implement basic grid (had to research a bit). Also bug in my dev tool (live-reload)
   - 30 min : Research flex vs grid, basic grid setup for 2nd section (still learning grids)
+  - 30 min : Section 2 and redo section 1 (confusing grid code)
 -->
 <head>
     <meta charset="UTF-8">
@@ -110,7 +111,7 @@ Time tracker :
 
     <div id="hide-bottom-svg-border"></div>
 
-    <section style="display: grid;grid-template-columns: repeat(12, 1fr)">
+    <section>
         <div class="left">
             <h2>Street Foods</h2>
             <div class="separator"></div>
@@ -125,6 +126,22 @@ Time tracker :
             <img src="img/bread.jpg" alt="Bread base delicacy">
         </div>
     </section>
+
+    <section>
+        <div class="left">
+            <img src="img/serving.jpg" alt="Serving food">
+        </div>
+        <div class="right">
+            <h2>The Magic of Test</h2>
+            <div class="separator"></div>
+            <p>
+                Pellentesque tempus ligula lorem, ac imperdiet lectus bibendum ac.
+                Aliquam dignissim molestie lobortis.
+                Etiam nec lorem finibusauris scelerisque posuere quis at massa.
+            </p>
+        </div>
+    </section>
+
     <section id="bogus"></section>
 
 </header>
