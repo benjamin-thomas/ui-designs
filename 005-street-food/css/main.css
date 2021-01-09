@@ -214,6 +214,8 @@ section:nth-of-type(3) img {
     background-position: center;
     background-size: cover;
     background-attachment: fixed; /* parallax */
+
+    margin-bottom: 0;
 }
 
 #place-order svg {
@@ -240,6 +242,14 @@ section:nth-of-type(3) img {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#place-order .img-container:hover img {
+    filter: brightness(70%);
+
+    transition-property: filter, -webkit-filter;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
 }
 
 #place-order .img-container .fa-search {
@@ -272,16 +282,71 @@ section:nth-of-type(3) img {
     }
 }
 
+#place-order-action {
+    text-align: center; /* center btn horiz */
+    margin-top: 70px;
+}
 
-/*!* 768px, 480px *!*/
-/*@media screen and (max-width: 768px) {*/
-/*    !*section .right {grid-row: 1;} // Tha's how I would inverse row order *!*/
-/*    section .left, section .right {*/
-/*        border: 3px solid green;*/
-/*        grid-column: span 12;*/
-/*    }*/
-/*}*/
+#place-order-action a {
+    background-color: #e3b407;
+    text-decoration: none;
+    color: #2C2C2C;
+
+    --font-size: 1rem;
+    font-size: var(--font-size);
+
+    padding: 15px 30px;
+    border-radius: 40px;
+}
+
+#place-order-action a i {
+    margin-left: 10px;
+}
+
+#place-order-action a:hover {
+    font-size: 1.1rem;
+
+    transition-property: font-size;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+#icons {
+    /*border: 3px solid red;*/
+    /*margin: 150px auto;*/
+    height: 350px;
+    margin: 0;
+    background-color: #F7F7F7;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#icons .bt-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#icons i {
+    font-size: 60px;
+    color: #e3b407;
+    border: 3px solid #e3b407;
+    padding: 25px;
+    border-radius: 50%;
+}
+
+#icons p {
+    font-size: 25px;
+    font-weight: 600;
+    color: #7a7a7a;
+    margin-top: 20px;
+}
 
 #bogus {
-    height: 300px;
+    margin: 0;
+    padding: 0;
+    height: 1000px;
+    background-color: #ffffff;
 }

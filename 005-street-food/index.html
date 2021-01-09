@@ -37,6 +37,11 @@ Time tracker :
   - 30 min : Section 3 Resize tablet + mobile OK, bg dark. I forgot about the gutter + hover effect. Need div wrapper. Fix gutter
   - 30 min : Section 3 Broken layout, and stretch pb again. Align search icon + color.
   - 30 min : Section 3 fixed, layout OK and search aligned OK
+  - 30 min : Section 3 dark hover effect OK
+  - 30 min : Section 3 WIP btn
+  - 30 min : Section 3 Search solution animate on visible
+  - 30 min : Section 3 Animate btn on visible, once. Had to research.
+  - 30 min : Section 4 : icons, circles not quite
 -->
 <head>
     <meta charset="UTF-8">
@@ -53,6 +58,12 @@ Time tracker :
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
           integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+          crossorigin="anonymous"/>
+
+    <!--    https://animate.style/ -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+          integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
           crossorigin="anonymous"/>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -186,6 +197,27 @@ Time tracker :
             </span>
         </div>
 
+        <div id="place-order-action">
+            <a href="#">Place An Oder Today
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </section>
+
+    <section title="Icons" id="icons">
+        <div class="bt-icon">
+            <i class="fa fa-phone"></i>
+            <p>Place Order</p>
+        </div>
+        <div class="bt-icon">
+            <i class="fa fa-truck"></i>
+            <p>Quick Delivery</p>
+        </div>
+        <div class="bt-icon">
+            <i class="fa fa-credit-card"></i>
+            <p>Pay Bill</p>
+        </div>
     </section>
 
     <section id="bogus"></section>
@@ -212,6 +244,34 @@ Time tracker :
             navbar.classList.remove('scrolled');
         }
     }
+
+    var triggered = false;
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const placeOrderAction = entry.target;
+
+            const isVisible = entry.intersectionRatio !== 0;
+            if (isVisible && !triggered) {
+                triggered = true;
+                setTimeout(() => {
+                    placeOrderAction.classList.add(
+                        'animate__animated',
+                        'animate__bounce',
+                    );
+                }, 500);
+
+            }
+        })
+    });
+
+    animationObserver.observe(document.getElementById('place-order-action'));
+    // const observer = new MutationObserver(() => {
+    //     if (placeOrderAction.style.display != 'none') {
+    //         console.log('Visible', new Date());
+    //     }
+    // });
+    // observer.observe(placeOrderAction, { attributes: true, childList: true});
+
 
     // })();
 </script>
