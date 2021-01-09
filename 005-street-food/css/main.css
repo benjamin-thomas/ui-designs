@@ -330,11 +330,20 @@ section:nth-of-type(3) img {
 }
 
 #icons i {
-    font-size: 60px;
+    font-size: 55px;
     color: #e3b407;
     border: 3px solid #e3b407;
     padding: 25px;
     border-radius: 50%;
+
+    /* Force square aspect ratio for perfect circles */
+    width: 1em;
+    height: 1em;
+
+    /* Center items just a little better */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #icons p {
