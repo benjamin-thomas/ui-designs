@@ -208,7 +208,7 @@ section:nth-of-type(3) img {
     /*border: 1px solid red;*/
     height: 800px;
     background-image: url(../img/narrow-street.jpg);
-    background-color: rgba(0,0,0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-position: center;
@@ -221,40 +221,56 @@ section:nth-of-type(3) img {
 }
 
 #place-order .images {
+    /*border: 1px solid red;*/
     margin: 30px 120px;
 
     display: flex;
+    min-height: 300px;
     flex-wrap: wrap;
-    /*flex-basis: 10px;*/
+}
 
-    /*align-items: center;*/
-    /*flex-wrap: wrap;*/
+#place-order .img-container {
+    box-sizing: border-box;
+
+    --margin: 16px;
+    width: calc(100% / 3 - 2 * var(--margin));
+    margin: var(--margin);
+
+    /* Align search icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#place-order .img-container .fa-search {
+    position: absolute;
+    color: #e3b407;
+
+    font-size: 1.3rem;
 }
 
 #place-order .images img {
-    --margin: 12px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Needs height + width @100% to trigger properly */
+
     border: 3px double #e3b407;
     border-radius: 5px;
-
-    width: calc(100% / 3 - 2 * var(--margin));
-    box-sizing: border-box;
-    margin: var(--margin);
 }
 
 @media screen and (max-width: 768px) {
-    #place-order .images img {
+    #place-order .img-container {
         width: calc(100% / 2 - 2 * var(--margin));
     }
 }
 
 @media screen and (max-width: 480px) {
-    #place-order .images img {
+    #place-order .img-container {
         width: calc(100% / 1);
         margin-left: 0;
         margin-right: 0;
     }
 }
-
 
 
 /*!* 768px, 480px *!*/
