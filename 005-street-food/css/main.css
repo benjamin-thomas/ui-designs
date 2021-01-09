@@ -199,6 +199,7 @@ section:nth-of-type(3) {
     grid-column-gap: 60px;
     margin: 150px 10px;
 }
+
 section:nth-of-type(3) img {
     width: 100%;
 }
@@ -207,6 +208,8 @@ section:nth-of-type(3) img {
     /*border: 1px solid red;*/
     height: 800px;
     background-image: url(../img/narrow-street.jpg);
+    background-color: rgba(0,0,0, 0.7);
+    background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -219,21 +222,40 @@ section:nth-of-type(3) img {
 
 #place-order .images {
     margin: 30px 120px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-basis: 10px;*/
+
+    /*align-items: center;*/
+    /*flex-wrap: wrap;*/
 }
 
 #place-order .images img {
-    width: 100%;
-    /*height: auto;*/
-    /*min-height: 100%;*/
-
+    --margin: 12px;
     border: 3px double #e3b407;
     border-radius: 5px;
 
-    object-fit:cover;
+    width: calc(100% / 3 - 2 * var(--margin));
+    box-sizing: border-box;
+    margin: var(--margin);
 }
+
+@media screen and (max-width: 768px) {
+    #place-order .images img {
+        width: calc(100% / 2 - 2 * var(--margin));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #place-order .images img {
+        width: calc(100% / 1);
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
 
 /*!* 768px, 480px *!*/
 /*@media screen and (max-width: 768px) {*/
