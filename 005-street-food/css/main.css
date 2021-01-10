@@ -353,6 +353,113 @@ section:nth-of-type(3) img {
     margin-top: 20px;
 }
 
+#our-blog {
+    margin: 30px 120px;
+}
+
+#our-blog #cards {
+    /*border: 1px solid orange;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#our-blog .card-img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#our-blog .card-img img {
+    width: 100%;
+}
+
+#our-blog .card .avatar {
+    --height: 60px; /* img size: 100px */
+    --border-width: 5px;
+    position: relative;
+    height: var(--height);
+    top: calc(var(--height) / -2);
+    left: calc(50% - var(--height) / 2 - var(--border-width));
+    border-radius: 50%;
+    border: var(--border-width) solid white;
+}
+
+#our-blog .card-img a {
+    position: absolute;
+    border: 1px solid transparent;
+    padding: 7px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: transparent;
+}
+#our-blog .card-img:hover a {
+    color: white;
+    border-color: white;
+    transition-property: all;
+    transition-duration: 400ms;
+}
+#our-blog .card-img a:hover {
+    background-color: white;
+    color: #333;
+    transition-property: background-color, color;
+    transition-duration: 400ms;
+}
+
+#our-blog .card {
+    border: 1px solid #eaeaea;
+}
+
+#our-blog .card .card-body {
+    /*
+        Compensates avatar pushed up.
+        I want roughly double the amount of white space at the bottom.
+        Do this visually, unclean values / magical numbers.
+     */
+    position: relative;
+    top: -20px;
+    margin-bottom: 20px;
+}
+#our-blog .card .card-body h3 {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+    text-align: center;
+    margin: auto 20px;
+}
+#our-blog .card .card-body a {
+    text-decoration: none;
+    color: #28170f;
+}
+#our-blog .card .card-body a:hover {
+    color: #e3b407;
+}
+
+#our-blog .card-footer {
+    background-color: #f0eff0;
+    color: #aaa;
+    padding: 12px 20px;
+    font-size: 13px;
+}
+#our-blog .card-footer a {
+    text-decoration: none;
+    color: inherit;
+    margin-left: 5px;
+}
+#our-blog .card-footer a:hover {
+    color: #333;
+}
+
+#our-blog h2 {
+    text-align: center;
+}
+
+#our-blog .separator {
+    margin: 20px auto;
+}
+
 #bogus {
     margin: 0;
     padding: 0;
