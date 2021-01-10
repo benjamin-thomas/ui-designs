@@ -354,13 +354,14 @@ section:nth-of-type(3) img {
 }
 
 #our-blog {
-    margin: 30px 120px;
+    margin: 60px 120px;
 }
 
 #our-blog #cards {
     /*border: 1px solid orange;*/
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
 }
 
 #our-blog .card-img {
