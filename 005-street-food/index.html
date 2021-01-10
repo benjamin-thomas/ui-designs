@@ -83,6 +83,15 @@ Time tracker :
                  src="img/logo.png">
         </a>
 
+        <div id="mobile-nav-right">
+            <a href="#">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                <span style="margin-left: 7px;margin-right:14px;">0</span>
+            </a>
+            <i class="fa fa-bars"></i>
+            <span id="open-close-msg">Menu</span>
+        </div>
+
         <div id="nav-links">
             <a href="#" class="active">Home</a>
             <a href="#">
@@ -399,12 +408,19 @@ Time tracker :
     });
 
     animationObserver.observe(document.getElementById('place-order-action'));
-    // const observer = new MutationObserver(() => {
-    //     if (placeOrderAction.style.display != 'none') {
-    //         console.log('Visible', new Date());
-    //     }
-    // });
-    // observer.observe(placeOrderAction, { attributes: true, childList: true});
+
+    const mobileNavbarToggle = document.querySelector('#mobile-nav-right .fa-bars');
+    const openCloseMsg = document.getElementById('open-close-msg');
+    const navLinks = document.getElementById('nav-links');
+    mobileNavbarToggle.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+            navLinks.classList.remove('open');
+            openCloseMsg.textContent = 'Menu'
+        } else {
+            navLinks.classList.add('open');
+            openCloseMsg.textContent = 'Close'
+        }
+    })
 
 
     // })();

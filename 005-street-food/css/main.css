@@ -71,6 +71,10 @@ a.active {
     padding-bottom: 3px;
 }
 
+#mobile-nav-right {
+    display: none;
+}
+
 header #navbar {
     position: fixed;
     width: 100%;
@@ -482,25 +486,69 @@ section:nth-of-type(3) img {
         position: relative;
     }
 
-    #navbar.scrolled #app-logo img {
+    #navbar #app-logo img, #navbar.scrolled #app-logo img {
         width: 150px;
         margin-left: 30px;
     }
 
     #nav-links {
-        display: flex;
-        flex-direction: column;
-        background-color: rgba(255,255,255,0.7);
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*align-content: center;*/
+        /*display: block;*/
+        background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         top: var(--navbar-height);
-        margin:0;
-        padding:0;
-        width:100vw;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
     }
 
     #nav-links a {
-        margin-top: 30px;
-        /*width: 100vw;*/
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+
+        padding-left: 30px;
+        border-bottom: 1px solid rgba(0, 0, 0, .035);
+        color: #333;
+        outline: none;
+
+        margin-top:0;
+        height: 0;
+        font-size: 0;
+        border-bottom-width: 0;
+        transition-property: height;
+        transition-duration: 400ms;
+    }
+
+    #nav-links.open a {
+        margin-top: 20px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    #nav-links a:hover {
+        border-bottom: none;
+    }
+
+    #mobile-nav-right {
+        display: block;
+        margin-right: 30px;
+    }
+
+    #mobile-nav-right a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #mobile-nav-right .fa-bars {
+        color: #e3b407;
+    }
+
+    #open-close-msg {
+        color: #e3b407;
+        margin-left: 7px;
     }
 
     section {
