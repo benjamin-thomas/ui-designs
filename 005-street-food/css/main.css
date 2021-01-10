@@ -211,7 +211,6 @@ section:nth-of-type(3) img {
 
 #place-order {
     /*border: 1px solid red;*/
-    height: 800px;
     background-image: url(../img/narrow-street.jpg);
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
@@ -290,6 +289,7 @@ section:nth-of-type(3) img {
 #place-order-action {
     text-align: center; /* center btn horiz */
     margin-top: 70px;
+    padding-bottom: 70px;
 }
 
 #place-order-action a {
@@ -566,9 +566,6 @@ section:nth-of-type(3) img {
         margin: 50px 20px;
     }
 
-    #place-order {
-        padding-bottom: 300px;
-    }
     #place-order .images {
         /*border: 1px solid red;*/
         margin: 30px 20px;
@@ -611,10 +608,6 @@ section:nth-of-type(3) img {
         margin-bottom: 30px;
     }
 
-    #place-order {
-        padding-bottom: 1000px;
-    }
-
     #icons {
         flex-direction: column;
         padding-top: 150px;
@@ -624,5 +617,18 @@ section:nth-of-type(3) img {
     #icons .bt-icon {
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    #navbar #app-logo img, #navbar.scrolled #app-logo img {
+        width: 100px;
+        margin-left: 20px;
+    }
+
+    #mobile-nav-right {
+        display: block;
+        margin-right: 20px;
     }
 }
