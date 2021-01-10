@@ -6,6 +6,7 @@ Grid cheat sheet:
 
 :root {
     --border-margin: 10vw;
+    --navbar-height: 74px;
 }
 
 * {
@@ -28,7 +29,7 @@ header nav {
 }
 
 #navbar {
-    height: 74px;
+    height: var(--navbar-height);
     transition: height 0.25s ease-in;
     display: flex;
     justify-content: space-between; /* logo left, rest on the right */
@@ -38,7 +39,7 @@ header nav {
 }
 
 #navbar.scrolled {
-    height: 54px;
+    --navbar-height: 54px;
 }
 
 #navbar.scrolled #app-logo img {
@@ -396,12 +397,14 @@ section:nth-of-type(3) img {
     font-weight: 700;
     color: transparent;
 }
+
 #our-blog .card-img:hover a {
     color: white;
     border-color: white;
     transition-property: all;
     transition-duration: 400ms;
 }
+
 #our-blog .card-img a:hover {
     background-color: white;
     color: #333;
@@ -423,6 +426,7 @@ section:nth-of-type(3) img {
     top: -20px;
     margin-bottom: 20px;
 }
+
 #our-blog .card .card-body h3 {
     font-size: 18px;
     line-height: 25px;
@@ -430,10 +434,12 @@ section:nth-of-type(3) img {
     text-align: center;
     margin: auto 20px;
 }
+
 #our-blog .card .card-body a {
     text-decoration: none;
     color: #28170f;
 }
+
 #our-blog .card .card-body a:hover {
     color: #e3b407;
 }
@@ -444,11 +450,13 @@ section:nth-of-type(3) img {
     padding: 12px 20px;
     font-size: 13px;
 }
+
 #our-blog .card-footer a {
     text-decoration: none;
     color: inherit;
     margin-left: 5px;
 }
+
 #our-blog .card-footer a:hover {
     color: #333;
 }
@@ -466,4 +474,36 @@ section:nth-of-type(3) img {
     padding: 0;
     height: 1000px;
     background-color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    #navbar {
+        padding: 0;
+        position: relative;
+    }
+
+    #navbar.scrolled #app-logo img {
+        width: 150px;
+        margin-left: 30px;
+    }
+
+    #nav-links {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255,255,255,0.7);
+        position: absolute;
+        top: var(--navbar-height);
+        margin:0;
+        padding:0;
+        width:100vw;
+    }
+
+    #nav-links a {
+        margin-top: 30px;
+        /*width: 100vw;*/
+    }
+
+    section {
+        /*display: none;*/
+    }
 }
