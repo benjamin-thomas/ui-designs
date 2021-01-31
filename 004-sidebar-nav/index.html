@@ -381,14 +381,24 @@
             enableScroll();
         }
 
-        /* Close navbar with ESCAPE */
+        /* Close the navbar with <ESCAPE> */
+        const isNavbarOpen = () => nav.classList.contains('open');
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
-                if (nav.classList.contains('open')) {
+                if (isNavbarOpen()) {
                     closeNavbar();
                 }
             }
         });
+
+        /* Open the navbar with <ALT-T> */
+        document.addEventListener('keydown', function (event) {
+            if (event.altKey && event.key === 't') {
+                if (!isNavbarOpen()) {
+                    openNavbar();
+                }
+            }
+        })
 
         btnNav.addEventListener("click", () => openNavbar());
         navOverlay.addEventListener("click", () => closeNavbar());
