@@ -41,7 +41,18 @@ header {
 nav.open .nav-links {
     transform: translateX(0);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* allows scrolling if content exceeds page height */
 }
+
+/*
+ https://dev.to/xtrp/how-to-create-a-beautiful-custom-scrollbar-for-your-site-in-plain-css-1mjg
+
+Customize the scrollbar later if required
+
+nav.open .nav-links::-webkit-scrollbar {
+    display: none;
+}
+ */
 
 nav a {
     display: flex;
