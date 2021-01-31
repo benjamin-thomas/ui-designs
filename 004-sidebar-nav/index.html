@@ -367,8 +367,12 @@
         btnNav.addEventListener("click", () => openNavbar());
         navOverlay.addEventListener("click", () => closeNavbar());
 
-        gestures.on('swipeleft', () => closeNavbar());
-        gestures.on('swiperight', () => openNavbar());
+        /* Open/close navbar with swiping gestures */
+        const touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+        if (touchDevice) {
+            gestures.on('swipeleft', () => closeNavbar());
+            gestures.on('swiperight', () => openNavbar());
+        }
     });
 
 </script>
