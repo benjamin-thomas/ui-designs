@@ -3,11 +3,8 @@ body {
 
     margin: var(--header-height) 0 0 0;
     font-family: sans-serif;
+    min-height: 100vh; /* for mobile swipe nav */
 }
-
-/*.preload * {*/
-/*    transition: none !important;*/
-/*}*/
 
 header {
     position: fixed;

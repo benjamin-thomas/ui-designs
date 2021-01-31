@@ -46,11 +46,14 @@
 </nav>
 
 <main>
-    <p>
+    <p id="swipe">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, est dolorem expedita deleniti deserunt
         corporis fuga, repudiandae eligendi, in vel velit odio reiciendis magnam sunt id ab obcaecati animi hic.
     </p>
 </main>
+
+<!-- Only basic touch events are implemented in js so better use a library -->
+<script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -58,12 +61,26 @@
         const btnNav = document.querySelector("#btnNav");
         const navOverlay = document.querySelector("#nav-overlay");
 
-        btnNav.addEventListener("click", () => nav.classList.add("open"));
+        delete Hammer.defaults.cssProps.userSelect; // breaks text selection otherwise
+        const gestures = new Hammer(document.body);
 
-        navOverlay.addEventListener("click", () => nav.classList.remove("open"));
+        function openNavbar() {
+            nav.classList.add("open");
+        }
+
+        function closeNavbar() {
+            nav.classList.remove("open");
+        }
+
+        btnNav.addEventListener("click", () => openNavbar());
+        navOverlay.addEventListener("click", () => closeNavbar());
+
+        gestures.on('swipeleft', () => closeNavbar());
+        gestures.on('swiperight', () => openNavbar());
     });
 
 </script>
+
 </body>
 
 
