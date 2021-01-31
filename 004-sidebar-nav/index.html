@@ -364,6 +364,15 @@
             enableScroll();
         }
 
+        /* Close navbar with ESCAPE */
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                if (nav.classList.contains('open')) {
+                    closeNavbar();
+                }
+            }
+        });
+
         btnNav.addEventListener("click", () => openNavbar());
         navOverlay.addEventListener("click", () => closeNavbar());
 
