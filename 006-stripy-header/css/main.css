@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+}
+
+header:first-child {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+header:first-child nav {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    text-decoration: none;
+    color: white;
+    font-size: 36px
+}
+
+#hamburger {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px
+}
+
+#container-top {
+    border: 1px solid transparent; /* weird I have to keep this */
+    text-align: center;
+    color: white;
+    background-color: #3699ff;
+    position: relative;
+    z-index: -2;
+}
+
+#home {
+    padding: 100px 0;
+    margin-top: 100px;
+}
+
+#home h1 {
+    font-size: 48px;
+    margin: auto;
+    width: 50%;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    #home h1 {
+        width: 100%;
+        font-size: 34px;
+    }
+}
+
+#home h2 {
+    font-size: 18px;
+}
+
+.bg-stripes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.bg-stripes {
+    position: absolute;
+    left: 21%;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.03);
+    transform: skew(33deg);
+    transform-origin: bottom;
+    z-index: -1;
+}
+
+.bg-stripes::before, .bg-stripes::after {
+    background: rgba(0, 0, 0, 0.04);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: '';
+}
+
+.bg-stripes:before {
+    left: 280px;
+}
+
+.bg-stripes:after {
+    left: 560px;
+}
+
+.bg-stripes-bottom {
+    position: relative;
+    top: 6px; /* not satisfied with this but I could not find a way to remove a persisting border */
+    left: 1px; /* ugly! */
+}
+
+#presentation {
+    padding: 100px 0;
+    text-align: center;
+}

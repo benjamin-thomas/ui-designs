@@ -9,11 +9,17 @@ Keeping for reference and inspiration.
 
 ## Development
 
-Use this tool
+Launch a web server as such:
 
 ```bash
 npm install -g live-server
 live-server --no-browser --no-css-inject
+```
+
+Or as such (not sure why I choose no-css-inject above):
+
+```
+live-server --no-browser --port=4200 ./006-stripy-header/
 ```
 
 Note to self: only use relative links, ok for dev env and live github
@@ -58,3 +64,4 @@ Visualise any of these pages
 3. [Apland navbar (mobile navbar needs more work)](003-appland)
 4. [Sidebar nav menu](004-sidebar-nav)
 5. [Street Food](005-street-food)
+6. [Stripy headers](006-stripy-header)
