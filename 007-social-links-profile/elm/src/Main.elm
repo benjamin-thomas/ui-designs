@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import AppColor
 import Browser
 import Element exposing (..)
 import Element.Background as Background
@@ -10,8 +11,18 @@ import Html exposing (Html)
 import Html.Attributes as HA
 
 
+type alias Profile =
+    { image : String
+    , fullName : String
+    , location : String
+    , bio : String
+    , socialLinks : List String
+    }
+
+
 type alias Model =
-    { hoveredButton : Maybe String }
+    { hoveredButton : Maybe String
+    }
 
 
 type Msg
@@ -44,18 +55,114 @@ elf attrs =
     el (width fill :: attrs)
 
 
-activeColor : Color
-activeColor =
-    rgb255 196 248 42
+sampleProfile : Profile
+sampleProfile =
+    { image = "avatar-jessica.jpeg"
+    , fullName = "Jessica Randall"
+    , location = "London, United Kingdom"
+    , bio = "Front-end developer and avid reader"
+    , socialLinks = [ "GitHub", "Frontend Mentor", "LinkedIn", "Twitter", "Instagram" ]
+    }
+
+
+profileCard : { a | hoveredButton : Maybe String } -> Profile -> Element Msg
+profileCard { hoveredButton } profile =
+    col
+        [ Background.color AppColor.cardBackground
+        , padding 30
+        , Border.rounded 10
+        , width fill
+        , Font.center
+        ]
+        [ col
+            [ centerX
+            , width fill
+            , Font.center
+            ]
+            [ image
+                [ centerX
+                , Border.rounded 60
+                , width (px 120)
+                , height (px 120)
+                , clip
+                ]
+                { src = "http://localhost:4010/assets/images/" ++ profile.image
+                , description = "avatar"
+                }
+            , elf
+                [ Font.size 25
+                , Font.bold
+                , paddingEach
+                    { top = 50
+                    , right = 0
+                    , bottom = 0
+                    , left = 0
+                    }
+                ]
+                (text profile.fullName)
+            , elf
+                [ Font.size 16
+                , Font.color AppColor.primary
+                , paddingEach
+                    { top = 15
+                    , bottom = 0
+                    , left = 0
+                    , right = 0
+                    }
+                ]
+                (text profile.location)
+            , elf
+                [ Font.size 16
+                , paddingXY 0 30
+                ]
+                (text profile.bio)
+            , col
+                [ centerX
+                , width fill
+                , Font.center
+                , paddingXY 0 15
+                , spacing 15
+                ]
+                (List.map
+                    (\str ->
+                        let
+                            hoverStyles =
+                                if hoveredButton == Just str then
+                                    (++)
+                                        [ Background.color AppColor.primary
+                                        , Font.color AppColor.linkBackground
+                                        ]
+
+                                else
+                                    (::) (Background.color AppColor.linkBackground)
+                        in
+                        el
+                            (hoverStyles
+                                [ width fill
+                                , paddingXY 0 18
+                                , Border.rounded 9
+                                , Font.semiBold
+                                , Font.size 18
+                                , Events.onMouseEnter (ButtonHover str)
+                                , Events.onMouseLeave ButtonLeave
+                                , Element.htmlAttribute (HA.style "cursor" "pointer")
+                                ]
+                            )
+                            (text str)
+                    )
+                    profile.socialLinks
+                )
+            ]
+        ]
 
 
 view : Model -> Html Msg
 view model =
     Element.layout
-        [ Background.color (rgb255 20 20 20) ]
+        [ Background.color AppColor.pageBackground ]
         (centerScreen <|
             col
-                [ Font.color (rgb255 255 255 255)
+                [ Font.color AppColor.white
                 ]
                 [ col
                     [ width (minimum 440 fill)
@@ -64,102 +171,11 @@ view model =
                     ]
                     [ el
                         [ paddingXY 0 20
-                        , Font.color (rgb255 128 128 128)
+                        , Font.color AppColor.pageText
                         , Font.italic
                         ]
                         (text "Elm-UI")
-                    , col
-                        [ Background.color (rgb255 31 31 31)
-                        , padding 30
-                        , Border.rounded 10
-                        , width fill
-                        , Font.center
-                        ]
-                        [ col
-                            [ centerX
-                            , width fill
-                            , Font.center
-                            ]
-                            [ image
-                                [ centerX
-                                , Border.rounded 60
-                                , width (px 120)
-                                , height (px 120)
-                                , clip
-                                ]
-                                { src = "http://localhost:4010/assets/images/avatar-jessica.jpeg" -- cSpell:disable-line
-                                , description = "avatar"
-                                }
-                            , elf
-                                [ Font.size 25
-                                , Font.bold
-                                , paddingEach
-                                    { top = 50
-                                    , right = 0
-                                    , bottom = 0
-                                    , left = 0
-                                    }
-                                ]
-                                (text "Jessica Randall")
-                            , elf
-                                [ Font.size 16
-                                , Font.color activeColor
-                                , paddingEach
-                                    { top = 15
-                                    , bottom = 0
-                                    , left = 0
-                                    , right = 0
-                                    }
-                                ]
-                                (text "London, United Kingdom")
-                            , elf
-                                [ Font.size 16
-                                , paddingXY 0 30
-                                ]
-                                (text "Front-end developer and avid reader")
-                            , col
-                                [ centerX
-                                , width fill
-                                , Font.center
-                                , paddingXY 0 15
-                                , spacing 15
-                                ]
-                                (List.map
-                                    (\str ->
-                                        let
-                                            hoverStyles =
-                                                if model.hoveredButton == Just str then
-                                                    (++)
-                                                        [ Background.color activeColor
-                                                        , Font.color (rgb255 51 51 51)
-                                                        ]
-
-                                                else
-                                                    (::) (Background.color (rgb255 51 51 51))
-                                        in
-                                        el
-                                            (hoverStyles
-                                                [ width fill
-                                                , paddingXY 0 18
-                                                , Border.rounded 9
-                                                , Font.semiBold
-                                                , Font.size 18
-                                                , Events.onMouseEnter (ButtonHover str)
-                                                , Events.onMouseLeave ButtonLeave
-                                                , Element.htmlAttribute (HA.style "cursor" "pointer")
-                                                ]
-                                            )
-                                            (text str)
-                                    )
-                                    [ "GitHub"
-                                    , "Frontend Mentor"
-                                    , "LinkedIn"
-                                    , "Twitter"
-                                    , "Instagram"
-                                    ]
-                                )
-                            ]
-                        ]
+                    , profileCard model sampleProfile
                     , col
                         [ width fill
                         , Font.size 17
@@ -175,7 +191,7 @@ view model =
                             ]
                             [ text "Challenge by\u{00A0}"
                             , link
-                                [ Font.color activeColor
+                                [ Font.color AppColor.primary
                                 , Font.underline
                                 , Font.italic
                                 ]
@@ -186,7 +202,7 @@ view model =
                         , row [ centerX, padding 2 ]
                             [ text "Coded by "
                             , el
-                                [ Font.color activeColor
+                                [ Font.color AppColor.primary
                                 , Font.italic
                                 ]
                                 (text "Benjamin THOMAS")

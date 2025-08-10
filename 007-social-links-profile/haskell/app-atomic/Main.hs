@@ -8,6 +8,7 @@ module Main (main, debug, debug') where
 
 import Data.ByteString.Lazy (fromStrict)
 import Data.String.Interpolate (i)
+import Data.Text (Text)
 import Network.HTTP.Types (status200, status404)
 import Network.Wai
 import Network.Wai.Handler.Warp as Warp
@@ -65,8 +66,26 @@ img x = tag "img" @ src x $ ""
 marginAuto :: (Styleable h) => CSS h -> CSS h
 marginAuto = utility "margin-auto" ["margin" :. "auto"]
 
-card :: Html ()
-card = do
+data Profile = Profile
+    { profileImage :: Text
+    , profileName :: Text
+    , profileLocation :: Text
+    , profileBio :: Text
+    , profileSocialLinks :: [Text] -- platform names
+    }
+
+sampleProfile :: Profile
+sampleProfile =
+    Profile
+        { profileImage = "avatar-jessica.jpeg"
+        , profileName = "Jessica Randall"
+        , profileLocation = "London, United Kingdom"
+        , profileBio = "Front-end developer and avid reader."
+        , profileSocialLinks = ["GitHub", "Frontend Mentor", "LinkedIn", "Twitter", "Instagram"]
+        }
+
+profileCard :: Profile -> Html ()
+profileCard profile = do
     el ~ screenCenter . flexDirection Column $ do
         el
             ~ margin 15
@@ -87,21 +106,16 @@ card = do
                         . pad (Y 50)
                     $ col
                         ( do
-                            img "/images/avatar-jessica.jpeg" -- cSpell:disable-line
+                            img ("/images/" <> profileImage profile)
                                 ~ rounded (Pct 0.5)
                                     . width 120
                                     . marginAuto
-                            el "Jessica Randall" ~ fontSize 24 . bold . pad (T 55)
-                            el "London, United Kingdom" ~ fontSize 14 . bold . color Primary ~ pad (T 7)
-                            el "Front-end developer and avid reader." ~ fontSize 14 . pad (T 30)
+                            el (text $ profileName profile) ~ fontSize 24 . bold . pad (T 55)
+                            el (text $ profileLocation profile) ~ fontSize 14 . bold . color Primary ~ pad (T 7)
+                            el (text $ profileBio profile) ~ fontSize 14 . pad (T 30)
                             el
                                 ~ pad (T 20)
-                                $ do
-                                    link' "GitHub"
-                                    link' "Frontend Mentor"
-                                    link' "LinkedIn"
-                                    link' "Twitter"
-                                    link' "Instagram"
+                                $ mapM_ link' (profileSocialLinks profile)
                         )
                 )
         el
@@ -138,8 +152,8 @@ el ~ transition 100 (Height 100) $ "Small"
 
  -}
 
-link' :: Html () -> Html ()
-link' =
+link' :: Text -> Html ()
+link' name =
     el
         ~ bg LinkBackground
             . border 1
@@ -153,11 +167,12 @@ link' =
                     . transition 100 (BgColor $ colorValue Primary)
                     . color LinkBackground
                 )
+        $ text name
 
 app :: Application
 app req respond = do
     case pathInfo req of
-        [] -> view card
+        [] -> view (profileCard sampleProfile)
         ["static", "reset.css"] -> reset
         _ -> notFound
   where

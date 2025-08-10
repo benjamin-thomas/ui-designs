@@ -12,6 +12,7 @@
 
 module Main (main) where
 
+import Data.Text (Text)
 import Data.Text qualified as T
 import Network.Wai.Handler.Warp qualified as Warp
 import Network.Wai.Middleware.Static qualified as Static
@@ -37,7 +38,8 @@ instance HyperView Counter es where
         deriving (Generic, ViewAction)
 
     update (Inc n) = do
-        pure $ viewCard (n + 1)
+        let nextIndex = n + 1
+        pure $ viewCard (getProfile nextIndex) nextIndex
 
 data AppRoute
     = Home
@@ -64,9 +66,45 @@ app = do
   where
     router Home = runPage cardPage
 
+data Profile = Profile
+    { profileImage :: Text
+    , profileName :: Text
+    , profileLocation :: Text
+    , profileBio :: Text
+    , profileSocialLinks :: [Text] -- platform names
+    }
+
+profiles :: [Profile]
+profiles =
+    [ Profile
+        { profileImage = "avatar-jessica.jpeg"
+        , profileName = "Jessica Randall"
+        , profileLocation = "London, United Kingdom"
+        , profileBio = "Front-end developer and avid reader."
+        , profileSocialLinks = ["GitHub", "Frontend Mentor", "LinkedIn", "Twitter", "Instagram"]
+        }
+    , Profile
+        { profileImage = "avatar-jessica.jpeg" -- reusing same image
+        , profileName = "Alex Chen"
+        , profileLocation = "San Francisco, USA"
+        , profileBio = "Full-stack engineer and coffee enthusiast."
+        , profileSocialLinks = ["GitHub", "LinkedIn", "Twitter", "Dev.to", "CodePen"]
+        }
+    , Profile
+        { profileImage = "avatar-jessica.jpeg" -- reusing same image
+        , profileName = "Maria Santos"
+        , profileLocation = "Barcelona, Spain"
+        , profileBio = "UX designer and creative thinker."
+        , profileSocialLinks = ["Dribbble", "Behance", "LinkedIn", "Instagram", "Medium"]
+        }
+    ]
+
+getProfile :: Int -> Profile
+getProfile n = profiles !! (n `mod` length profiles)
+
 cardPage :: (Hyperbole :> es) => Eff es (Page '[Counter])
 cardPage = do
-    pure $ hyper MkCounter (viewCard 0)
+    pure $ hyper MkCounter (viewCard (getProfile 0) 0)
 
 screenCenter :: (Styleable h) => CSS h -> CSS h
 screenCenter =
@@ -93,8 +131,8 @@ cursorPointer = utility "cursor-pointer" ["cursor" :. "pointer"]
 userSelectNone :: (Styleable h) => CSS h -> CSS h
 userSelectNone = utility "select-none" ["user-select" :. "none"]
 
-link' :: View a () -> View a ()
-link' =
+link' :: Text -> View a ()
+link' name' =
     el
         ~ bg LinkBackground
             . border 1
@@ -108,12 +146,13 @@ link' =
                     . transition 100 (BgColor $ colorValue Primary)
                     . color LinkBackground
                 )
+        $ text name'
 
 lineHeight :: (Styleable h) => Float -> CSS h -> CSS h
 lineHeight n = utility ("line-height" -. n) ["line-height" :. A.style n]
 
-viewCard :: Int -> View Counter ()
-viewCard n = do
+viewCard :: Profile -> Int -> View Counter ()
+viewCard profile n = do
     el ~ screenCenter . flexDirection Column $ do
         el @ onClick (Inc n)
             ~ margin 15
@@ -136,21 +175,16 @@ viewCard n = do
                         . pad (Y 50)
                     $ col
                         ( do
-                            img "/images/avatar-jessica.jpeg" -- cSpell:disable-line
+                            img ("/images/" <> profileImage profile)
                                 ~ rounded (Pct 0.5)
                                     . width 120
                                     . marginAuto
-                            el "Jessica Randall" ~ fontSize 24 . bold . pad (T 55)
-                            el "London, United Kingdom" ~ fontSize 14 . bold . color Primary ~ pad (T 7)
-                            el "Front-end developer and avid reader." ~ fontSize 14 . pad (T 30)
+                            el (text $ profileName profile) ~ fontSize 24 . bold . pad (T 55)
+                            el (text $ profileLocation profile) ~ fontSize 14 . bold . color Primary ~ pad (T 7)
+                            el (text $ profileBio profile) ~ fontSize 14 . pad (T 30)
                             el
                                 ~ pad (T 20)
-                                $ do
-                                    link' "GitHub"
-                                    link' "Frontend Mentor"
-                                    link' "LinkedIn"
-                                    link' "Twitter"
-                                    link' "Instagram"
+                                $ mapM_ link' (profileSocialLinks profile)
                         )
                 )
         el

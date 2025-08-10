@@ -59,9 +59,10 @@ Navigate to [my github pages](https://benjamin-thomas.github.io/ui-designs/)
 
 Visualise any of these pages
 
-1. [Tailwind signup](001-tailwind-signup)
-2. [Unishop table](002-unishop-table)
-3. [Apland navbar (mobile navbar needs more work)](003-appland)
-4. [Sidebar nav menu](004-sidebar-nav)
-5. [Street Food](005-street-food)
-6. [Stripy headers](006-stripy-header)
+01. [Tailwind signup](001-tailwind-signup)
+02. [Unishop table](002-unishop-table)
+03. [Apland navbar (mobile navbar needs more work)](003-appland)
+04. [Sidebar nav menu](004-sidebar-nav)
+05. [Street Food](005-street-food)
+06. [Stripy headers](006-stripy-header)
+07. [Social Links Profile](007-social-links-profile/html-and-css/)
