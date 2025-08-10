@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Social links profile</title>
+
+  <style>
+    :root {
+      --active-color: #C4F82A;
+    }
+
+    body {
+      background-color: #141414;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: white;
+    }
+
+    .card {
+      margin-top: 0;
+      padding-top: 0;
+      background-color: #1F1F1F;
+      min-width: 360px;
+      padding: 60px 40px;
+      border: 1px solid #101010;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card img {
+      border-radius: 50%;
+      margin-bottom: 30px;
+      width: 120px;
+      height: 120px;
+    }
+
+    .location {
+      font-size: 14px;
+      color: var(--active-color);
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .moto {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .link {
+      background-color: #333333;
+      border: 1px solid #202020;
+      padding: 15px 0;
+      border-radius: 9px;
+
+      margin: 15px 0;
+      font-weight: 600;
+      font-size: 14px;
+
+      --delay: 0.1s;
+      transition: background-color var(--delay) ease, color var(--delay) ease;
+    }
+
+    .link:hover {
+      background-color: var(--active-color);
+      color: #333333;
+      cursor: pointer;
+    }
+
+    .attribution {
+      margin-top: 20px;
+      color: #EEE;
+    }
+
+    .attribution a {
+      color: var(--active-color);
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .debug {
+      border: 1px solid red;
+      background-color: lightblue;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div style="min-width:430px;margin-bottom:15px;color:#808080;font-style:italic">
+    Just HTML & CSS
+  </div>
+
+  <div class="card">
+    <img src="assets/images/avatar-jessica.jpeg" alt="avatar">
+    <h2>Jessica Randall</h2>
+    <div class="location">London, United Kingdom</div>
+    <div class="moto">Front-end developer and avid reader.</div>
+
+    <div class="link">GitHub</div>
+    <div class="link">Frontend Mentor</div>
+    <div class="link">LinkedIn</div>
+    <div class="link">Twitter</div>
+    <div class="link">Instagram</div>
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Benjamin THOMAS</a>.
+  </div>
+</body>
+
+</html>

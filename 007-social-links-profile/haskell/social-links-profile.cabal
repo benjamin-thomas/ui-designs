@@ -1,0 +1,45 @@
+cabal-version:      3.0
+name:               social-links-profile
+
+version:            0.1.0.0
+license:            NONE
+
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall
+
+executable hyperbole-main
+    import:           warnings
+
+    main-is:          Main.hs
+
+    build-depends: base
+                 , text
+                 , hyperbole
+                 , atomic-css
+                 , effectful-core ^>=2.6.0.0
+                 , wai-middleware-static
+                 , warp
+                 , wai
+
+    hs-source-dirs:   app-hyper
+    default-language: Haskell2010
+
+executable atomic-main
+    import:           warnings
+    main-is:          Main.hs
+
+    build-depends: base
+                 , atomic-css
+                 , wai
+                 , warp
+                 , http-types
+                 , string-interpolate
+                 , text
+                 , bytestring
+                 , wai-middleware-static
+                 , warp
+
+    hs-source-dirs:   app-atomic
+    default-language: Haskell2010
